@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor Gomes Silva — BTS SIO SLAM</title>
+    <meta name="description" content="Portfolio étudiant BTS SIO SLAM — Développement Web, Mobile, IA locale et Solutions d'Entreprise.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- SIDE HUD PANELS -->
+    <div class="side-panel side-left" aria-hidden="true">
+        <div class="side-line"></div>
+        <div class="side-content">
+            <div class="side-label">SYS_MONITOR</div>
+            <div class="side-metric">
+                <span class="side-metric-name">VRAM</span>
+                <div class="side-bar-wrap"><div class="side-bar-fill" id="vram-bar"></div></div>
+                <span class="side-metric-val" id="vram-val">14.2G</span>
+            </div>
+            <div class="side-metric">
+                <span class="side-metric-name">GPU </span>
+                <div class="side-bar-wrap"><div class="side-bar-fill side-bar-green" id="gpu-bar"></div></div>
+                <span class="side-metric-val" id="gpu-val">87%</span>
+            </div>
+            <div class="side-metric">
+                <span class="side-metric-name">RAM </span>
+                <div class="side-bar-wrap"><div class="side-bar-fill side-bar-purple" id="ram-bar"></div></div>
+                <span class="side-metric-val" id="ram-val">62G</span>
+            </div>
+            <div class="side-divider"></div>
+            <div class="side-label">TOKENS/S</div>
+            <div class="side-token-counter" id="token-counter">0</div>
+            <div class="side-token-unit">tok/s</div>
+            <div class="side-divider"></div>
+            <div class="side-label">MODEL</div>
+            <div class="side-model-name">llama3.1<br>7B-Q4_K_M</div>
+            <div class="side-divider"></div>
+            <div class="side-status-row">
+                <span class="side-dot-live"></span>
+                <span>INFERENCE</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="side-panel side-right" aria-hidden="true">
+        <div class="side-line"></div>
+        <div class="side-content">
+            <div class="side-label">NET_STACK</div>
+            <div class="side-net-item"><span class="side-dot-on"></span><span>Docker</span></div>
+            <div class="side-net-item"><span class="side-dot-on"></span><span>Oracle 19c</span></div>
+            <div class="side-net-item"><span class="side-dot-on"></span><span>MCP / SSE</span></div>
+            <div class="side-net-item side-net-off"><span class="side-dot-off"></span><span>Internet</span></div>
+            <div class="side-divider"></div>
+            <div class="side-label">CODE_STREAM</div>
+            <div class="side-code-stream" id="code-stream"></div>
+            <div class="side-divider"></div>
+            <div class="side-label">LATENCY</div>
+            <div class="side-latency-bars" id="latency-bars">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="side-divider"></div>
+            <div class="side-label">UPTIME</div>
+            <div class="side-uptime" id="uptime">00:00:00</div>
+            <div class="side-status-row">
+                <span class="side-dot-live"></span>
+                <span>ON-PREMISE</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="logo"><span class="logo-bracket">&lt;</span>Victor<span class="logo-highlight">GS</span><span class="logo-bracket">/&gt;</span></div>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="#home" class="nav-link">Accueil</a></li>
+            <li><a href="#about" class="nav-link">À propos</a></li>
+            <li><a href="#bts" class="nav-link">BTS SIO</a></li>
+            <li><a href="#parcours" class="nav-link">Parcours</a></li>
+            <li><a href="#projects" class="nav-link">Projets</a></li>
+            <li><a href="#skills" class="nav-link">Compétences</a></li>
+            <li><a href="#veille" class="nav-link">Veille</a></li>
+            <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+        <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- 1. ACCUEIL -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="grid-overlay"></div>
+            <div class="glow glow-1"></div>
+            <div class="glow glow-2"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge hero-anim">BTS SIO · Option SLAM · 2ème année</div>
+            <h1 class="hero-title hero-anim">Bonjour, je suis<br><span class="hero-name-accent">Victor Gomes Silva</span></h1>
+            <p class="hero-subtitle hero-anim">Développeur d'applications sécurisées &amp; intégrateur d'IA locale. Passionné par la data, l'automatisation et les architectures modernes.</p>
+            <div class="hero-btns hero-anim">
+                <a href="#projects" class="btn-primary">Voir mes projets</a>
+                <a href="#parcours" class="btn-outline">Mon parcours</a>
+            </div>
+            <div class="hero-stack hero-anim">
+                <span>Python</span><span>SQL Oracle</span><span>Kotlin</span><span>PHP</span><span>Docker</span><span>LLM / RAG</span>
+            </div>
+        </div>
+        <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
+    </section>
+
+    <!-- 2. À PROPOS -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-label reveal">Qui suis-je ?</div>
+            <h2 class="section-title reveal">À propos de moi</h2>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>Actuellement en 2ème année de BTS SIO au <strong>Lycée Léonard de Vinci à Melun</strong>, option SLAM. Passionné par le développement logiciel et l'intelligence artificielle, j'ai eu l'opportunité de travailler sur des projets à fort impact métier lors de mes stages chez <strong>D8 Espresso Excellence</strong>.</p>
+                    <p>Mon stage de 2ème année m'a conduit à déployer une IA générative complète — de la présentation devant la direction générale jusqu'à l'assemblage physique du serveur. Ce type de défi technique et humain est exactement ce qui me passionne.</p>
+                    <div class="about-info-grid">
+                        <div class="about-info-item"><span class="info-label">Prénom</span><span>Victor</span></div>
+                        <div class="about-info-item"><span class="info-label">Nom</span><span>Gomes Silva</span></div>
+                        <div class="about-info-item"><span class="info-label">Localisation</span><span>Chateaubleau (77)</span></div>
+                        <div class="about-info-item"><span class="info-label">Mail</span><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d1a7b8b2a5bea3b6bca2e1e2e1e691b6bcb0b8bdffb2bebc">[email&#160;protected]</a></span></div>
+                        <div class="about-info-item"><span class="info-label">Téléphone</span><span>06 56 71 83 19</span></div>
+                        <div class="about-info-item"><span class="info-label">Permis</span><span>Permis B</span></div>
+                    </div>
+                    <a href="assets/cv.pdf" target="_blank" class="btn-primary" style="display:inline-flex;align-items:center;gap:.5rem;margin-top:1.8rem;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Télécharger mon CV
+                    </a>
+                </div>
+                <div class="about-card reveal">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            <span class="terminal-title">victor@portfolio:~$</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p><span class="t-prompt">$</span> <span class="t-cmd">whoami</span></p>
+                            <p class="t-out">Victor Gomes Silva — BTS SIO SLAM</p>
+                            <p><span class="t-prompt">$</span> <span class="t-cmd">cat langues.txt</span></p>
+                            <p class="t-out">Portugais · Espagnol · Anglais</p>
+                            <p><span class="t-prompt">$</span> <span class="t-cmd">ls ./interets/</span></p>
+                            <p class="t-out">IA_locale/  data_engineering/</p>
+                            <p class="t-out">hardware/  cybersec/</p>
+                            <p><span class="t-prompt">$</span> <span class="t-cmd">echo $DISPO</span></p>
+                            <p class="t-out">Disponible — Juin 2026</p>
+                            <p class="t-cursor"><span class="t-prompt">$</span> <span class="cursor-blink">█</span></p>
+                        </div>
+                    </div>
+                    <div class="about-facts">
+                        <div class="fact"><span class="fact-num">2</span><span class="fact-label">Stages</span></div>
+                        <div class="fact"><span class="fact-num">4</span><span class="fact-label">Projets</span></div>
+                        <div class="fact"><span class="fact-num">~4K€</span><span class="fact-label">Budget géré</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. BTS SIO -->
+    <section id="bts" class="section section-dark">
+        <div class="container">
+            <div class="section-label reveal">Ma formation</div>
+            <h2 class="section-title reveal">BTS SIO</h2>
+
+            <div class="bts-definition reveal">
+                <h3>Qu'est-ce que le BTS SIO ?</h3>
+                <p>Le <strong>BTS SIO (Services Informatiques aux Organisations)</strong> prépare les étudiants à travailler dans le domaine de l'informatique au sein des organisations et des entreprises. Il comprend deux options selon la spécialisation souhaitée :</p>
+            </div>
+
+            <div class="bts-grid">
+                <div class="bts-card reveal bts-card-other">
+                    <div class="bts-card-header">
+                        <span class="bts-option-tag">Option SISR</span>
+                        <h3>Solutions d'Infrastructure, Systèmes et Réseaux</h3>
+                    </div>
+                    <p>Cette option se concentre sur la gestion des infrastructures informatiques, la mise en place et la maintenance des réseaux, la sécurité des systèmes d'information et l'administration des serveurs.</p>
+                    <p class="bts-metiers-label">Métiers accessibles :</p>
+                    <div class="bts-metiers">
+                        <span class="bts-metier-tag">Technicien de production</span>
+                        <span class="bts-metier-tag">Technicien réseau</span>
+                        <span class="bts-metier-tag">Administrateur systèmes et réseaux</span>
+                    </div>
+                </div>
+                <div class="bts-card reveal bts-card-active">
+                    <div class="bts-active-badge">Ma spécialité ✓</div>
+                    <div class="bts-card-header">
+                        <span class="bts-option-tag accent">Option SLAM</span>
+                        <h3>Solutions Logicielles et Applications Métiers</h3>
+                    </div>
+                    <p>Cette option se concentre sur le développement d'applications informatiques, la programmation, la conception de bases de données et la gestion de projets informatiques.</p>
+                    <p class="bts-metiers-label">Métiers accessibles :</p>
+                    <div class="bts-metiers">
+                        <span class="bts-metier-tag accent">Technicien de production</span>
+                        <span class="bts-metier-tag accent">Programmeur</span>
+                        <span class="bts-metier-tag accent">Analyste programmeur</span>
+                        <span class="bts-metier-tag accent">Technicien d'études informatiques</span>
+                        <span class="bts-metier-tag accent">Informaticien d'études</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bts-parcours reveal">
+                <h3>Mon parcours BTS SIO</h3>
+                <p>Formation au <strong>Lycée Léonard de Vinci — Melun</strong> · 2024 – 2026</p>
+                <div class="bts-projets-grid">
+                    <div class="bts-projet-col">
+                        <h4>Projets réalisés</h4>
+                        <ul class="bts-projet-list">
+                            <li><a href="https://github.com/victorgms3/GeoWorld" target="_blank">GeoWorld — PHP/SQL</a></li>
+                            <li><a href="https://github.com/victorgms3/kotlinBatailleNavale" target="_blank">Bataille Navale — Kotlin</a></li>
+                            <li><a href="https://github.com/victorgms3/kotlinMonsterSprint3" target="_blank">Monster Sprint — Kotlin POO</a></li>
+                            <li>IA On-Premise — Python / Docker</li>
+                        </ul>
+                    </div>
+                    <div class="bts-stage-col">
+                        <h4>Stages effectués</h4>
+                        <div class="bts-stages-table">
+                            <div class="bts-stage-row bts-stage-header">
+                                <span>Stage 1ère année</span>
+                                <span>Stage 2ème année</span>
+                            </div>
+                            <div class="bts-stage-row">
+                                <span>D8 Espresso Excellence</span>
+                                <span>D8 Espresso Excellence</span>
+                            </div>
+                            <div class="bts-stage-row bts-stage-links">
+                                <button class="btn-timeline" onclick="openModal('modal-sql')">📄 Compte rendu</button>
+                                <button class="btn-timeline btn-timeline-accent" onclick="openModal('modal-ia')">📄 Compte rendu</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. PARCOURS (FRISE) -->
+    <section id="parcours" class="section">
+        <div class="container">
+            <div class="section-label reveal">Mon histoire</div>
+            <h2 class="section-title reveal">Parcours professionnel</h2>
+            <div class="timeline">
+
+                <div class="timeline-item reveal" data-side="left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-year">2021 – 2024</div>
+                        <div class="timeline-tag">Formation</div>
+                        <h3>Baccalauréat STMG</h3>
+                        <p>Lycée Henri Becquerel — Nangis</p>
+                        <p class="timeline-desc">Sciences et Technologies du Management et de la Gestion, obtenu en juin 2024.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal" data-side="right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-year">Mai – Juin 2025</div>
+                        <div class="timeline-tag tag-stage">Stage 1ère année · 6 semaines</div>
+                        <h3>Stagiaire Support &amp; SQL</h3>
+                        <p>D8 Espresso Excellence — Vitry-sur-Seine</p>
+                        <p class="timeline-desc">Reporting logistique SQL sur Oracle 19c, intranet HTML/CSS zéro papier, mise à jour de +6 000 fiches clients.</p>
+                        <button class="btn-timeline" onclick="openModal('modal-sql')">📄 Voir le compte rendu</button>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal" data-side="left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-year">Juil. – Août 2025</div>
+                        <div class="timeline-tag tag-cdd">CDD</div>
+                        <h3>Opérateur Distribution Automatique</h3>
+                        <p>D8 Espresso Excellence — Vitry-sur-Seine</p>
+                        <p class="timeline-desc">Gestion autonome des tournées de réapprovisionnement, relation client, maintenance de premier niveau.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal" data-side="right">
+                    <div class="timeline-dot timeline-dot-accent"></div>
+                    <div class="timeline-card timeline-card-accent">
+                        <div class="timeline-year">Janv. – Fév. 2026</div>
+                        <div class="timeline-tag tag-stage">Stage 2ème année · 6 semaines</div>
+                        <h3>Stagiaire IT — Intégration IA</h3>
+                        <p>D8 Espresso Excellence — Vitry-sur-Seine</p>
+                        <p class="timeline-desc">Déploiement d'une IA générative locale connectée à Oracle 19c. Budget ~4 000 €, présentation DG, assemblage serveur, Docker.</p>
+                        <button class="btn-timeline btn-timeline-accent" onclick="openModal('modal-ia')">📄 Voir le compte rendu</button>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal" data-side="left">
+                    <div class="timeline-dot timeline-dot-current"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-year">2024 – 2026</div>
+                        <div class="timeline-tag tag-current">En cours</div>
+                        <h3>BTS SIO — Option SLAM</h3>
+                        <p>Lycée Léonard de Vinci — Melun</p>
+                        <p class="timeline-desc">Diplôme Bac+2, prévu juin 2026. Spécialisation développement web, mobile, BDD et IA.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PROJETS -->
+    <section id="projects" class="section section-dark">
+        <div class="container">
+            <div class="section-label reveal">Réalisations</div>
+            <h2 class="section-title reveal">Mes projets</h2>
+            <div class="projects-grid">
+
+                <article class="project-card project-featured reveal" onclick="openModal('modal-ia')">
+                    <div class="project-visual project-visual-ia">
+                        <div class="pv-arch">
+                            <span>AnythingLLM</span>
+                            <span class="pv-arrow">→</span>
+                            <span class="pv-accent">MCP Server</span>
+                            <span class="pv-arrow">→</span>
+                            <span>Oracle 19c</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tag">Stage 2ème année · 2026</div>
+                        <h3>IA Générative On-Premise</h3>
+                        <p>Assistant IA local connecté à Oracle 19c via MCP &amp; Docker — confidentialité absolue, zéro internet.</p>
+                        <div class="project-stack"><span>Python</span><span>Docker</span><span>LM Studio</span><span>Oracle 19c</span><span>MCP/SSE</span></div>
+                        <span class="project-link">En savoir plus →</span>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" onclick="openModal('modal-sql')">
+                    <div class="project-visual project-visual-sql">
+                        <div class="pv-report">
+                            <div class="pv-row pv-row-red"><span>PDV 163051</span><span>Retard +2j 🔴</span></div>
+                            <div class="pv-row pv-row-yellow"><span>PDV 145191</span><span>Retard +1j 🟡</span></div>
+                            <div class="pv-row"><span>PDV 320041</span><span>À jour ✅</span></div>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tag">Stage 1ère année · 2025</div>
+                        <h3>Reporting Logistique SQL</h3>
+                        <p>Suivi des retards de ravitaillement. Utilisé quotidiennement par les coordinateurs de D8.</p>
+                        <div class="project-stack"><span>Oracle SQL</span><span>Draw.io</span><span>HTML/CSS</span></div>
+                        <span class="project-link">En savoir plus →</span>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" onclick="openModal('modal-kotlin')">
+                    <div class="project-visual project-visual-kotlin">
+                        <div class="pv-grid">
+                            <div></div><div class="pv-ship"></div><div></div><div></div><div></div>
+                            <div class="pv-ship"></div><div class="pv-hit"></div><div></div><div></div><div></div>
+                            <div></div><div></div><div></div><div class="pv-miss"></div><div></div>
+                            <div></div><div></div><div class="pv-ship"></div><div></div><div></div>
+                            <div></div><div></div><div></div><div></div><div class="pv-hit"></div>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tag">Projet scolaire</div>
+                        <h3>Suite Applicative Kotlin</h3>
+                        <p>Bataille Navale (algorithmique) + Monster Sprint (POO, héritage, polymorphisme).</p>
+                        <div class="project-stack"><span>Kotlin</span><span>POO</span><span>Git</span></div>
+                        <span class="project-link">Voir sur GitHub →</span>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" onclick="openModal('modal-geo')">
+                    <div class="project-visual project-visual-geo">
+                        <div class="pv-geo">
+                            <div class="pv-geo-bar"><span>🌍 Europe</span><div class="pv-geo-fill" style="width:75%"></div></div>
+                            <div class="pv-geo-bar"><span>🌎 Amériques</span><div class="pv-geo-fill" style="width:60%"></div></div>
+                            <div class="pv-geo-bar"><span>🌏 Asie</span><div class="pv-geo-fill" style="width:85%"></div></div>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tag">Projet scolaire</div>
+                        <h3>GeoWorld</h3>
+                        <p>Application de consultation de données géopolitiques avec filtrage dynamique par continent.</p>
+                        <div class="project-stack"><span>PHP</span><span>SQL</span><span>HTML/CSS</span></div>
+                        <span class="project-link">Voir sur GitHub →</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. COMPÉTENCES -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-label reveal">Stack technique</div>
+            <h2 class="section-title reveal">Mes compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+                    <h3>Backend &amp; Data</h3>
+                    <ul>
+                        <li><div class="skill-row"><span>SQL (Oracle 19c, MySQL)</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></li>
+                        <li><div class="skill-row"><span>PHP / Symfony</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></li>
+                        <li><div class="skill-row"><span>Python — Scripting &amp; API</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></li>
+                    </ul>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+                    <h3>Applicatif &amp; Mobile</h3>
+                    <ul>
+                        <li><div class="skill-row"><span>Kotlin (Android / Desktop)</span><span class="skill-pct">72%</span></div><div class="skill-bar"><div class="skill-fill" data-w="72"></div></div></li>
+                        <li><div class="skill-row"><span>Java — POO Avancée</span><span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></li>
+                        <li><div class="skill-row"><span>Algorithmique</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></li>
+                    </ul>
+                </div>
+                <div class="skill-card skill-card-accent reveal">
+                    <div class="skill-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 6a6 6 0 0 1 6 6"/><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
+                    <h3>IA &amp; Innovation</h3>
+                    <ul>
+                        <li><div class="skill-row"><span>LLM local (LM Studio)</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></li>
+                        <li><div class="skill-row"><span>RAG / Intégration BDD</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></li>
+                        <li><div class="skill-row"><span>Prompt Engineering</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div></li>
+                    </ul>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                    <h3>Web &amp; Outils</h3>
+                    <ul>
+                        <li><div class="skill-row"><span>HTML / CSS / JavaScript</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></li>
+                        <li><div class="skill-row"><span>Git / GitHub</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></li>
+                        <li><div class="skill-row"><span>Docker</span><span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. VEILLE -->
+    <section id="veille" class="section section-dark">
+        <div class="container">
+            <div class="section-label reveal">Veille technologique</div>
+            <h2 class="section-title reveal">NVIDIA &amp; la crise VRAM :<br>impact sur le développement IA</h2>
+
+            <div class="veille-intro-block reveal">
+                <h4>Qu'est-ce que la veille technologique ?</h4>
+                <p>La veille technologique consiste à surveiller les avancées techniques dans un domaine spécifique afin d'anticiper les évolutions et d'évaluer leur impact sur l'environnement professionnel. Elle implique la collecte, l'analyse et la diffusion d'informations sur les innovations, brevets et nouvelles pratiques du secteur.</p>
+            </div>
+
+            <div class="veille-layout">
+                <div class="veille-main">
+                    <div class="veille-meta reveal">
+                        <span class="veille-date">Sujet actif · 2025 – 2026</span>
+                        <span class="veille-category">GPU · IA · Développement</span>
+                    </div>
+                    <div class="veille-block reveal">
+                        <div class="veille-block-num">01</div>
+                        <div class="veille-block-content">
+                            <h4>Le constat : une VRAM qui ne suit plus</h4>
+                            <p>La RTX 5060 (série Blackwell, 2025) est lancée avec seulement <strong>8 Go de VRAM</strong> — identique à la RTX 3060 de 2021. Or les LLM à 7B paramètres nécessitent déjà 8 à 16 Go. Le segment haut de gamme (RTX 5090) s'envole au-delà de 2 500 €, hors de portée pour les PME.</p>
+                        </div>
+                    </div>
+                    <div class="veille-block reveal">
+                        <div class="veille-block-num">02</div>
+                        <div class="veille-block-content">
+                            <h4>Impact direct sur mon stage</h4>
+                            <p>Sans GPU, notre serveur de test tournait à <strong>1 token/minute</strong> — inutilisable. Le choix de la RTX 5060 Ti <strong>16 Go</strong> (et non 8 Go) a été une décision technique délibérée pour pouvoir exécuter des modèles 7B+ en production locale.</p>
+                        </div>
+                    </div>
+                    <div class="veille-block reveal">
+                        <div class="veille-block-num">03</div>
+                        <div class="veille-block-content">
+                            <h4>Les réponses de l'industrie</h4>
+                            <p>Quantification des modèles (GGUF Q4/Q8), RAM offloading, architectures RAG légères, modèles spécialisés 1B–3B. Le développeur qui sait optimiser ses modèles devient plus précieux que celui qui compte sur la puissance brute.</p>
+                        </div>
+                    </div>
+                    <div class="veille-block reveal">
+                        <div class="veille-block-num">04</div>
+                        <div class="veille-block-content">
+                            <h4>Mon analyse</h4>
+                            <p>Cette situation valorise les architectures légères et le code efficient. Mon approche RAG + Oracle plutôt qu'un modèle sur-paramétré est directement née de cette contrainte matérielle. <strong>L'intelligence, c'est faire plus avec moins.</strong></p>
+                        </div>
+                    </div>
+                    <a href="assets/veille_nvidia_vram.pdf" target="_blank" class="btn-veille-dl reveal">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Télécharger ma veille complète (PDF)
+                    </a>
+                </div>
+
+                <aside class="veille-aside">
+                    <div class="veille-stat-card reveal"><div class="stat-label">RTX 5060 VRAM (2025)</div><div class="stat-value">8 Go</div><div class="stat-note">= RTX 3060 en 2021</div></div>
+                    <div class="veille-stat-card reveal"><div class="stat-label">LLM 7B — VRAM min.</div><div class="stat-value">8–16 Go</div><div class="stat-note">Selon la quantisation</div></div>
+                    <div class="veille-stat-card veille-stat-highlight reveal"><div class="stat-label">Mon choix — RTX 5060 Ti</div><div class="stat-value">16 Go</div><div class="stat-note">Pour les modèles 7B+ en prod</div></div>
+
+                    <div class="veille-tools reveal">
+                        <h4>Outils de veille utilisés</h4>
+                        <div class="veille-tool-list">
+                            <div class="veille-tool">
+                                <div class="veille-tool-icon">🔔</div>
+                                <div><strong>Google Alerts</strong><p>"NVIDIA VRAM", "LLM local", "RTX 5060"</p></div>
+                            </div>
+                            <div class="veille-tool">
+                                <div class="veille-tool-icon">🐦</div>
+                                <div><strong>X (Twitter)</strong><p>Comptes spécialisés GPU &amp; IA</p></div>
+                            </div>
+                            <div class="veille-tool">
+                                <div class="veille-tool-icon">▶️</div>
+                                <div><strong>YouTube</strong><p>Benchmarks GPU, tests LLM locaux</p></div>
+                            </div>
+                            <div class="veille-tool">
+                                <div class="veille-tool-icon">📰</div>
+                                <div><strong>Tom's Hardware</strong><p>Actualité et analyses hardware</p></div>
+                            </div>
+                            <div class="veille-tool">
+                                <div class="veille-tool-icon">🤗</div>
+                                <div><strong>Hugging Face</strong><p>Modèles LLM open source</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CONTACT -->
+    <footer id="contact">
+        <div class="container">
+            <div class="section-label reveal">Me contacter</div>
+            <h2 class="section-title reveal">Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <div class="contact-info-item"><div class="contact-icon">📍</div><div><strong>Adresse</strong><p>Chateaubleau, Seine-et-Marne (77)</p></div></div>
+                    <div class="contact-info-item"><div class="contact-icon">📞</div><div><strong>Téléphone</strong><p>06 56 71 83 19</p></div></div>
+                    <div class="contact-info-item"><div class="contact-icon">✉️</div><div><strong>Email</strong><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="27514e44534855404a541714171067404a464e4b0944484a">[email&#160;protected]</a></p></div></div>
+                    <div class="contact-info-item"><div class="contact-icon">💻</div><div><strong>GitHub</strong><p><a href="https://github.com/victorgms3" target="_blank" style="color:var(--accent)">github.com/victorgms3</a></p></div></div>
+                    <div class="contact-socials">
+                        <a href="https://github.com/victorgms3" target="_blank" class="social-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                            GitHub
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form reveal" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" placeholder="Alternance, Stage, Question...">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" placeholder="Votre message..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-form">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        Envoyer le message
+                    </button>
+                    <div class="form-success" id="form-success">✅ Message envoyé ! Je vous réponds rapidement.</div>
+                </form>
+            </div>
+            <div class="footer-bottom reveal">
+                <div class="logo"><span class="logo-bracket">&lt;</span>Victor<span class="logo-highlight">GS</span><span class="logo-bracket">/&gt;</span></div>
+                <p>© 2026 Victor Gomes Silva — BTS SIO SLAM · Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS PROJETS -->
+    <div id="modal-ia" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-ia')">✕</button>
+            <div class="modal-tag">Stage 2ème année · Janvier–Février 2026</div>
+            <h2>IA Générative On-Premise</h2>
+            <p class="modal-intro">Déploiement d'un assistant IA local connecté à Oracle 19c via MCP &amp; Docker — confidentialité absolue, zéro internet.</p>
+            <div class="modal-section"><h4>Contexte &amp; enjeu</h4><p>D8 SAS avait besoin d'un assistant capable de répondre aux questions métier tout en garantissant la confidentialité absolue. Aucune donnée ne devait quitter le réseau interne.</p></div>
+            <div class="modal-section">
+                <h4>Architecture</h4>
+                <div class="modal-arch">
+                    <div class="arch-item">AnythingLLM<br><small>Orchestrateur</small></div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-item arch-item-accent">Serveur MCP<br><small>Python · Docker</small></div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-item">Oracle 19c<br><small>Schéma VEGA</small></div>
+                </div>
+            </div>
+            <div class="modal-section"><h4>Défis résolus</h4>
+                <ul class="modal-list">
+                    <li>Sans GPU → 1 token/min → présentation DG → budget ~4 000 € validé</li>
+                    <li>Incompatibilité Ubuntu / drivers NVIDIA → migration Windows</li>
+                    <li>Oracle depuis Docker : Thick Mode + Instant Client 21.12</li>
+                    <li>Transport SSE : implémentation Raw ASGI pour contourner les bugs FastAPI</li>
+                    <li>Contexte LLM : limitation à 50 lignes via <code>cursor.fetchmany(50)</code></li>
+                </ul>
+            </div>
+            <div class="modal-stack"><span>Python</span><span>Docker</span><span>LM Studio</span><span>AnythingLLM</span><span>Oracle 19c</span><span>MCP/SSE</span><span>RTX 5060 Ti 16Go</span></div>
+            <a href="assets/rapport_stage_2a.pdf" target="_blank" class="btn-modal">Voir le rapport de stage →</a>
+        </div>
+    </div>
+
+    <div id="modal-sql" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-sql')">✕</button>
+            <div class="modal-tag">Stage 1ère année · Mai–Juin 2025</div>
+            <h2>Reporting Logistique SQL</h2>
+            <p class="modal-intro">Outil de suivi des retards de ravitaillement des distributeurs automatiques, utilisé quotidiennement par les coordinateurs.</p>
+            <div class="modal-section"><h4>Problématique</h4><p>Identifier rapidement les distributeurs en retard de plus de 2 jours pour prioriser les urgences des coordinateurs logistiques.</p></div>
+            <div class="modal-section"><h4>Contrainte technique</h4><p>Base Oracle legacy : pas de CTE, pas de <code>TO_DATE</code> avancé, pas de procédures stockées complexes pour le module VEGA.</p></div>
+            <div class="modal-section"><h4>Autres réalisations</h4>
+                <ul class="modal-list">
+                    <li>Schéma relationnel BDD via Draw.io</li>
+                    <li>+6 000 fiches clients mises à jour (codes APE/SIREN via INSEE)</li>
+                    <li>Intranet HTML/CSS — initiative zéro papier</li>
+                </ul>
+            </div>
+            <div class="modal-stack"><span>Oracle SQL</span><span>SQL Developer</span><span>Draw.io</span><span>HTML/CSS</span></div>
+            <a href="assets/Fiche_Projet_Stage_D8.pdf" target="_blank" class="btn-modal">Voir la fiche projet PDF →</a>
+        </div>
+    </div>
+
+    <div id="modal-kotlin" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-kotlin')">✕</button>
+            <div class="modal-tag">Projet scolaire · BTS SIO</div>
+            <h2>Suite Applicative Kotlin</h2>
+            <p class="modal-intro">Deux projets illustrant la progression de l'algorithmique pure à l'architecture orientée objet avancée.</p>
+            <div class="modal-section"><h4>Bataille Navale</h4><p>Gestion de grilles, algorithme de tir stratégique, gestion des états de jeu. Focus algorithmique et structures de données.</p></div>
+            <div class="modal-section"><h4>Monster Sprint</h4><p>POO avancée : héritage, polymorphisme, interfaces, hiérarchie de classes complexes.</p></div>
+            <div class="modal-stack"><span>Kotlin</span><span>POO</span><span>Héritage</span><span>Git</span></div>
+            <div class="modal-links">
+                <a href="https://github.com/victorgms3/kotlinBatailleNavale" target="_blank" class="btn-modal">Repo Bataille Navale</a>
+                <a href="https://github.com/victorgms3/kotlinMonsterSprint3" target="_blank" class="btn-modal">Repo Monster Sprint</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-geo" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal-geo')">✕</button>
+            <div class="modal-tag">Projet scolaire · BTS SIO</div>
+            <h2>GeoWorld</h2>
+            <p class="modal-intro">Application web de consultation de données géopolitiques avec filtrage dynamique par continent.</p>
+            <div class="modal-section"><h4>Réalisation</h4><p>Refonte d'une application existante. Requêtes SQL dynamiques pour le filtrage, affichage des données pays (population, superficie, capitales) avec interface responsive.</p></div>
+            <div class="modal-stack"><span>PHP<
